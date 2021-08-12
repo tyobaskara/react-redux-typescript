@@ -4,7 +4,7 @@ import get from 'lodash/get';
 import { Todo } from './todos.reducer';
 import { todosActionTypes } from './todos.types';
 
-interface TodosListAction {
+export interface TodosListAction {
   type: todosActionTypes.SET_TODOS_LIST,
   payload: Todo[]
 }
