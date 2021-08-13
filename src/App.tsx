@@ -4,6 +4,7 @@ import './App.scss';
 import TodosList from './components/todos-list/todos-list.component';
 import TodosListHooks from './components/todos-list-hooks/todos-list-hooks.component';
 import ParentAndChild from './components/parent-and-child/parent-and-child.component';
+import JsonPlaceholderTodos from './pages/jsonplaceholder-todos/jsonplaceholder-todos.component';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           <li>
             <Link to='/parentandchild'>ParentAndChild</Link>
           </li>
+          <li>
+            <Link to='/jsonplaceholdertodos'>JsonPlaceholderTodos</Link>
+          </li>
         </ul>
       </header>
 
@@ -29,6 +33,7 @@ function App() {
         <Route exact path='/todoslist' component={TodosList}/>
         <Route exact path='/todoslisthooks' component={TodosListHooks}/>
         <Route exact path='/parentandchild' component={ParentAndChild}/>
+        <Route exact path='/jsonplaceholdertodos' component={JsonPlaceholderTodos}/>
       </Switch>
     </div>
   );
