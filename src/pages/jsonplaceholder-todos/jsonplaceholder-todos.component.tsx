@@ -33,8 +33,14 @@ const JsonPlaceholderTodos: FC = () => {
   const { list, loading, error } = useJsonPlaceholderTodos();
   console.log('render JsonPlaceholderTodos');
 
-  const incompleteList: Todo[] = useMemo(() => list.filter(item => item.completed === false), [list]);
-  const completeList: Todo[] = useMemo(() => list.filter(item => item.completed === true), [list]);
+  // filterList will not recalculated because useMemo and dependence on list update
+  const filterList = (data: any, key: string, value: any) => {
+    console.log('filterList');
+    return data.filter((item: any) => item[key] === value);
+  }
+
+  const incompleteList: Todo[] = useMemo(() => filterList(list, 'completed', false), [list]);
+  const completeList: Todo[] = useMemo(() => filterList(list, 'completed', true), [list]);
 
   const onClick = () => {
     setCount(current => current + 1);
